@@ -55,12 +55,21 @@ function msg(data){
   var utcDate = x.time
   var post = x.post
 
-  var $this = $('#incoming').clone();
-  $this.text('posted by '+ buser +' on '+utcDate)
+  var $clone = $('#incoming').clone();
+  $clone.removeAttr('id');
+  $clone.text('posted by '+'master'+' on '+utcDate)
+  $clone.appendTo($('#append'));
   var msg = $('p#incomingmsg').clone();
+  msg.removeAttr('id');
   msg.text(post);
-  msg.appendTo($this);
-  $this.appendTo($('#incoming'));
+  msg.appendTo($clone);
+
+  // var $this = $('#incoming').clone();
+  // $this.text('posted by '+ buser +' on '+utcDate)
+  // var msg = $('p#incomingmsg').clone();
+  // msg.text(post);
+  // msg.appendTo($this);
+  // $this.appendTo($('#incoming'));
 
   })
 }
@@ -74,17 +83,15 @@ function post(){
   var post = $('#message').val();
 
   var posted = {'post':post ,'time':utcDate}
-  var $incoming = $('#incoming')
-  var $this = $incoming.clone();
-  $incoming.removeAttr('id');
-  $this.removeAttr('id')
-  $this.text('posted by '+'master'+' on '+utcDate)
-  var msg = $('p#incomingmsg').clone();
-  msg.removeAttr('id')
-  msg.text(post);
-  msg.appendTo($this);
-  $this.appendTo($('.table'));
 
+  var $clone = $('#incoming').clone();
+  $clone.removeAttr('id');
+  $clone.text('posted by '+'master'+' on '+utcDate)
+  $clone.appendTo($('#append'));
+  var msg = $('p#incomingmsg').clone();
+  msg.removeAttr('id');
+  msg.text(post);
+  msg.appendTo($clone);
 
   $.post('/newmessage',posted)
 }
