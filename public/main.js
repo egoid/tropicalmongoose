@@ -74,16 +74,17 @@ function post(){
   var post = $('#message').val();
 
   var posted = {'post':post ,'time':utcDate}
-  var $this = $('#incoming').clone();
+  var $incoming = $('#incoming')
+  var $this = $incoming.clone();
+  $incoming.removeAttr('id');
   $this.removeAttr('id')
   $this.text('posted by '+'master'+' on '+utcDate)
   var msg = $('p#incomingmsg').clone();
   msg.removeAttr('id')
   msg.text(post);
   msg.appendTo($this);
-  $this.appendTo($('#fuckthis'));
-  msg.removeAttr('id')
-  $this.removeAttr('id')
+  $this.appendTo($('.table'));
+
 
   $.post('/newmessage',posted)
 }

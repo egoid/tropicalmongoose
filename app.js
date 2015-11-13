@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser')
 
-mongoose.connect('mongodb://localhost/message');
+mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost/message');
 
 var app = express();
 app.set('view engine','jade');
