@@ -20,6 +20,7 @@ app.use(morgan('dev'));
 app.use('/', require('./routes/index'));
 app.use('/newuser', require('./routes/newuser'));
 app.use('/newmessage', require('./routes/newmessage'));
+app.use('/item',require('./routes/item'))
 
 app.use(function(req,res){
   res.status(404).render('404')
