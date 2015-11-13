@@ -1,7 +1,6 @@
 {
   "name": "forum",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,11 +12,12 @@
     "body-parser": "^1.14.1",
     "bower": "^1.6.5",
     "express": "^4.13.3",
-    "jquery": "^2.1.4",
-    "kerberos": "0.0.17",
+    "jade": "^1.11.0",
     "mongo": "^0.1.0",
     "mongodb": "^2.0.48",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
